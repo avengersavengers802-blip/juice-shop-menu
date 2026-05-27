@@ -1,0 +1,172 @@
+.profile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(59, 26, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    animation: fadeIn var(--transition-fast) ease-out;
+}
+
+.profile-card {
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 440px;
+    padding: 2.2rem 2rem;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(180, 80, 0, 0.12);
+    animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.profile-close-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-navy);
+    opacity: 0.6;
+    transition: opacity var(--transition-fast);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.profile-close-btn:hover {
+    opacity: 1;
+    background: rgba(180, 80, 0, 0.05);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.profile-header h2 {
+    font-size: 1.6rem;
+    color: var(--color-navy);
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+}
+
+.profile-header p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.profile-save-btn {
+    flex: 2;
+    background: linear-gradient(135deg, #ff6b00, #ff9a3c);
+    color: white;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0.85rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.3);
+    transition: all var(--transition-bounce);
+}
+
+.profile-save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 107, 0, 0.4);
+}
+
+.profile-logout-btn {
+    flex: 1;
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    color: #dc3545;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0.85rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.profile-logout-btn:hover {
+    background: rgba(220, 53, 69, 0.05);
+    border-color: #dc3545;
+}
+
+.profile-save-btn:active,
+.profile-logout-btn:active {
+    transform: translateY(0);
+}
+
+.profile-error-msg {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.profile-success-msg {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Dark mode overrides */
+html[data-theme="dark"] .profile-logout-btn {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+html[data-theme="dark"] .profile-logout-btn:hover {
+    background: rgba(220, 53, 69, 0.15);
+    border-color: #dc3545;
+}
+
+@media (max-width: 480px) {
+    .profile-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .profile-card {
+        border-radius: 24px 24px 0 0;
+        max-width: 100%;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 2rem 1.5rem 2.5rem;
+        animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+}
